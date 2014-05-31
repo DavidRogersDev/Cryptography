@@ -24,7 +24,7 @@ namespace KesselRun.Cryptography.Tests
             Symmetric symmetric = new Symmetric();
 
             //  Act
-            string encryptedString = symmetric.CryptoEncryptString(password, salt, encryptThis);
+            string encryptedString = symmetric.EncryptString(password, salt, encryptThis);
 
             //  Assert            
             Assert.IsInstanceOfType(encryptedString, typeof(string));
@@ -40,7 +40,7 @@ namespace KesselRun.Cryptography.Tests
             salt = string.Empty;
 
             //  Act
-            string encryptedString = symmetric.CryptoEncryptString(password, salt, encryptThis);
+            string encryptedString = symmetric.EncryptString(password, salt, encryptThis);
         }
 
         [TestMethod]
@@ -52,7 +52,7 @@ namespace KesselRun.Cryptography.Tests
             salt = null;
 
             //  Act
-            string encryptedString = symmetric.CryptoEncryptString("bvgfiSdfr4)", salt, encryptThis);
+            string encryptedString = symmetric.EncryptString("bvgfiSdfr4)", salt, encryptThis);
         }
 
         [TestMethod]
@@ -64,7 +64,7 @@ namespace KesselRun.Cryptography.Tests
             password = string.Empty;
 
             //  Act
-            string encryptedString = symmetric.CryptoEncryptString(password, salt, encryptThis);
+            string encryptedString = symmetric.EncryptString(password, salt, encryptThis);
         }
 
         [TestMethod]
@@ -76,7 +76,7 @@ namespace KesselRun.Cryptography.Tests
             password = null;
 
             //  Act
-            string encryptedString = symmetric.CryptoEncryptString(password, salt, encryptThis);
+            string encryptedString = symmetric.EncryptString(password, salt, encryptThis);
         }
 
         [TestMethod]
@@ -88,7 +88,7 @@ namespace KesselRun.Cryptography.Tests
             encryptThis = string.Empty;
 
             //  Act
-            string encryptedString = symmetric.CryptoEncryptString(password, salt, encryptThis);
+            string encryptedString = symmetric.EncryptString(password, salt, encryptThis);
         }
 
         [TestMethod]
@@ -100,7 +100,7 @@ namespace KesselRun.Cryptography.Tests
             encryptThis = null;
 
             //  Act
-            string encryptedString = symmetric.CryptoEncryptString(password, salt, encryptThis);
+            string encryptedString = symmetric.EncryptString(password, salt, encryptThis);
         }
     }
 }

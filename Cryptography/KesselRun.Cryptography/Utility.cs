@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Security.Cryptography;
+using System.Text;
 
 namespace KesselRun.Cryptography
 {
     public class Utility
     {
-        private const int SaltSize = 128 / 8; // 128 bits
+        private const int SaltSize = 128/8; // 128 bits
 
         internal static byte[] GenerateSaltInternal(int byteLength = SaltSize)
         {
-            byte[] buf = new byte[byteLength];
+            var buf = new byte[byteLength];
             using (var rng = new RNGCryptoServiceProvider())
             {
                 rng.GetBytes(buf);
@@ -20,6 +21,37 @@ namespace KesselRun.Cryptography
         public static string GenerateSalt(int byteLength = SaltSize)
         {
             return Convert.ToBase64String(GenerateSaltInternal(byteLength));
+        }
+
+
+        public static string GenerateRandomString(int size)
+        {
+            var rngCryptoServiceProvider = new RNGCryptoServiceProvider();
+
+            byte[] randomBytes = new byte[size];
+
+            rngCryptoServiceProvider.GetNonZeroBytes(randomBytes);
+
+
+            var builder = new StringBuilder(size);
+            for (var i = 0; i < size; i++)
+            {
+                var ch = Convert.ToChar(Convert.ToInt32(Math.Floor(52*NextDouble(rngCryptoServiceProvider) + 65)));
+                builder.Append(ch);
+            }
+
+            return builder.ToString();
+        }
+
+        internal static double NextDouble(RandomNumberGenerator rngCryptoServiceProvider)
+        {
+            byte[] buffer = new byte[4];
+
+            rngCryptoServiceProvider.GetBytes(buffer);
+
+            int result = BitConverter.ToInt32(buffer, 0);
+
+            return new Random(result).NextDouble();
         }
 
         //public static void GenRandomBytes(byte[] buffer)

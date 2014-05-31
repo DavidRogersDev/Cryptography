@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text;
 
 namespace KesselRun.Cryptography
 {
@@ -120,7 +119,7 @@ namespace KesselRun.Cryptography
 
         
         /// <summary>
-        /// Taken from CodesInChaos' answer on Stackoverlow http://stackoverflow.com/a/14333437/540156
+        /// Taken from CodesInChaos' answer on Stackoverlow http://stackoverflow.com/a/14333437
         /// </summary>
         /// <param name="bytes"></param>
         /// <returns></returns>

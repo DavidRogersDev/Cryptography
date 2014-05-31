@@ -9,7 +9,7 @@ namespace KesselRun.Cryptography
         /// <summary>
         /// Encrypt a string using RijndaelManaged.
         /// </summary>
-        public string CryptoEncryptString(string password, string salt, string textToEncrypt)
+        public string EncryptString(string password, string salt, string textToEncrypt)
         {
             if (string.IsNullOrWhiteSpace(password))
                 throw new ArgumentNullException("password", string.Format("The {0} parameter has to be a non-empty string.", password));
@@ -34,7 +34,7 @@ namespace KesselRun.Cryptography
         /// <summary>
         /// Decrypt a string using RijndaelManaged.
         /// </summary>
-        public string CryptoDecryptString(string password, string salt, string textToDecrypt)
+        public string DecryptString(string password, string salt, string textToDecrypt)
         {
             if (string.IsNullOrWhiteSpace(password))
                 throw new ArgumentNullException("password", string.Format("The {0} parameter has to be a non-empty string.", password));
