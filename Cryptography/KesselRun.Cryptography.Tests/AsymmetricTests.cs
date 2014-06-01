@@ -11,7 +11,7 @@ namespace KesselRun.Cryptography.Tests
         {
             var asymmetric = new Asymmetric();
 
-            var entropy = Utility.GenerateRandomString(10);
+            var entropy = Utility.GenerateRandomString(100);
 
             var salt = Utility.GenerateSalt();
             var password = "MyDogHasFleas";

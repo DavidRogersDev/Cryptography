@@ -33,7 +33,7 @@ namespace KesselRun.Cryptography.Tests
         }
 
         [TestMethod]
-    [ExpectedException(typeof(ArgumentException),"Salt is not at least eight bytes.")]
+        [ExpectedException(typeof(ArgumentException),"Salt is not at least eight bytes.")]
         public void CryptoEncryptString_Throws_Error_When_Salt_Is_Empty_String() { 
             //  Arrange
             Symmetric symmetric = new Symmetric();

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -36,7 +37,7 @@ namespace KesselRun.Cryptography
             var builder = new StringBuilder(size);
             for (var i = 0; i < size; i++)
             {
-                var ch = Convert.ToChar(Convert.ToInt32(Math.Floor(52*NextDouble(rngCryptoServiceProvider) + 65)));
+                var ch = Convert.ToChar(Convert.ToInt32(Math.Floor(122*NextDouble(rngCryptoServiceProvider) + 33)));
                 builder.Append(ch);
             }
 
@@ -50,7 +51,6 @@ namespace KesselRun.Cryptography
             rngCryptoServiceProvider.GetBytes(buffer);
 
             int result = BitConverter.ToInt32(buffer, 0);
-
             return new Random(result).NextDouble();
         }
 
