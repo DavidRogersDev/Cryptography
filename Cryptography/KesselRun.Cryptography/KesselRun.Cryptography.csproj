@@ -41,7 +41,7 @@
   <ItemGroup>
     <Compile Include="Asymmetric.cs" />
     <Compile Include="Conversions.cs" />
-    <Compile Include="Enums\bla.cs" />
+    <Compile Include="Enums\CustomEnums.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="Symmetric.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

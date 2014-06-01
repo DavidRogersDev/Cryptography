@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 
 namespace KesselRun.Cryptography.Tests
@@ -11,7 +12,7 @@ namespace KesselRun.Cryptography.Tests
         {
             var asymmetric = new Asymmetric();
 
-            var entropy = Utility.GenerateRandomString(100);
+            var entropy = Utility.GenerateRandomString(20);
 
             var salt = Utility.GenerateSalt();
             var password = "MyDogHasFleas";
@@ -22,7 +23,26 @@ namespace KesselRun.Cryptography.Tests
             Trace.WriteLine(entropy);
             Trace.WriteLine(hash);
 
-            Assert.AreEqual(hash, asymmetric.HashString(password, salt, entropy));
+            Assert.IsTrue(hash.Equals(asymmetric.HashString(password, salt, entropy), StringComparison.Ordinal));
+        }
+        
+        [TestMethod]
+        public void HashStringHashesStringWhereEntrpoyEmptyString()
+        {
+            var asymmetric = new Asymmetric();
+
+            var entropy = string.Empty;
+
+            var salt = Utility.GenerateSalt();
+            var password = "MyDogHasFleas";
+
+            var hash = asymmetric.HashString(password, salt, entropy);
+
+            Trace.WriteLine(salt);
+            Trace.WriteLine(entropy);
+            Trace.WriteLine(hash);
+
+            Assert.IsTrue(hash.Equals(asymmetric.HashString(password, salt, entropy), StringComparison.Ordinal));
         }
     }
 }
